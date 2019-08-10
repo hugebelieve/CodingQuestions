@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>All Algo</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="stylesheets/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="javascripts/materilize.js"></script>
+
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/serverCall.js"></script>
+</head>
+<body>
+    <div class="row">
+        <div class="col s12 m6">
+            <form method="post" target="_blank" action="/submitAlgo">
+                <div class="card white">
+                    <div class="card-content">
+                        <span class="card-title" style="color: blue;">All Algo</span>
+                        <div class="input-field" style="width: 90%;">
+                            <select id="selected_algo" required onchange="selectChange(this.value)" name="index">
+                            </select>
+                            <label>Select Algo</label>
+                        </div>
+
+                        <div class="input-field" style="width: 50%; display: none;">
+                            <input id="url" type="text" name="url" class="validate" hidden>
+                            <label for="url">Path</label>
+                        </div>
+
+                        <div class="input-field" style="width: 50%; display: none;">
+                            <input id="path" type="text" name="path" class="validate" hidden>
+                            <label for="path">Path</label>
+                        </div>
+
+                        
+                        <div class="input-field" style="width: 90%;margin-top: 30px;">
+                            <textarea id="argsJson" class="materialize-textarea" name="argsJson"></textarea>
+                            <label id="argsJsonLabel" for="argsJson">JSON INPUT</label>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <button class="btn waves-effect waves-light" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var allUrl = [];
+
+        function selectChange(index){
+            $("#url").val(allUrl[index].url);
+            $("#path").val(allUrl[index].path);
+            $("#argsJson").val(allUrl[index].egInput);
+            $("#argsJsonLabel").addClass("active");
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if(allUrl.length>0){
+                return;
+            }
+            serverCall({url:"./allUrl",type: "POST", obj: {}}).then((data)=>{
+                let selectArray = [];
+                allUrl = data;
+                data.forEach((item,index)=>{
+                    if(index==0){
+                        $("#url").val(item.url);
+                        $("#path").val(item.path);
+                        $("#argsJson").val(item.egInput);
+                        $("#argsJsonLabel").addClass("active");
+                    }
+                    $("#selected_algo").append(`
+                        <option value="${index}">${item.description}</option>
+                    `);
+                });
+                resetSelect();
+            }).catch((error)=>{
+                alert("Cannot fetch all urls");
+                console.log(error);
+            });
+        });
+
+        function resetSelect(){
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, {});
+            M.textareaAutoResize($('#argsJson'));
+        }
+
+        
+    </script>
+</body>
+</html>
