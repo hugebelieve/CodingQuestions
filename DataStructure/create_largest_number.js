@@ -4,6 +4,8 @@
 // Combine them and make largest number
 // Output : "95343423"
 
+
+
 var createLargest = function(array){
 
     //sort for arranging in our way
@@ -19,7 +21,7 @@ var createLargest = function(array){
                 return item.split("").pop();
             });
         }
-        if(compareString[0]>compareString[1]) { // 342 & 34 then 2>4
+        if(compareString[0]>compareString[1]) { // 342 & 34 then 2>4 // update instead of this check all digits 3>3, 4>4, **2>4** and continue
             return -1; //don't swap as we need descending
         }else{
             return 1; //swap
