@@ -32,7 +32,7 @@ module.exports = [
     {
         url: "codeJamMonster",
         description: "Decipher CodeJam Monster String",
-        egInput: `{"vocalA":["this", "is", "a", "monster", "retsnom"], "cipher": "ishtsiaanrestmon"}`,
+        egInput: `{"vocalA":["this", "is", "a", "monster", "retsnom"], "cipher": "ishtsiaarestmon"}`,
         path: "codejam_monster"
     },
     {

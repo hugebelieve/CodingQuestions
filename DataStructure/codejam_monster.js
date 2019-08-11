@@ -52,8 +52,8 @@ var getCombination =  function({vocalA, cipher}){ //ishtsiaanrestmon
     return returnCombinationOutput(0, sortVocabMap, mapOfVocabPosition, cipher, []);
 }
 
-var returnCombinationOutput = function( start, sortVocabMap, mapOfVocabPosition, 
-                                        cipher, resultStrA, finalResult = []){
+var returnCombinationOutput =( start, sortVocabMap, mapOfVocabPosition, 
+                                        cipher, resultStrA, finalResult = []) =>{
     //string can start with these words only
     let nextTargetWord = Object.keys(mapOfVocabPosition).reduce((acc, key)=>{
         if( mapOfVocabPosition[key][start] ){ //if start object present
