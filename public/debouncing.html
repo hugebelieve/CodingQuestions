@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Debouncing</title>
+</head>
+<body>
+
+    <input type="text" id="main" onkeyup="inputEvent(event)">
+    
+
+    <script>
+
+        var suggestionAPI = function(element) {
+            console.log(element.value);
+        }
+
+        var debounceFunc = function(fn, delay){
+            let timer;
+            return function(...args){
+                console.log(this);
+                
+                let ref = this;
+                clearTimeout(timer);
+                timer = setTimeout(()=>{
+                    fn(...args);
+                },delay);
+            }
+        }
+        var inputEvent = debounceFunc(suggestionAPI, 300);
+    </script>
+</body>
+</html>
