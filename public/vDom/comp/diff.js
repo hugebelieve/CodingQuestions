@@ -56,6 +56,10 @@ var diffChildren = (oldChildren, newChildren) => {
 
             if(patchFunction) //safeguard when innerHTML is considered by DOM as textNode
                 patchFunction($child); //patch on that child element as if it is root
+            else{
+                if($child.nodeName!="#text")
+                    $child.remove(); //extra may present because of slow loading
+            }
         });
 
         addPatched.forEach((patch)=>{

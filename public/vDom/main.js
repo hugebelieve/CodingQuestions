@@ -35,5 +35,5 @@ setInterval(()=>{
     rootElement = patch(rootElement);
 
     $vNode = $newNode; //reset for next iteration
-},1000);
+},3000);
 
