@@ -1,0 +1,64 @@
+<!-- Implemented in 2 hr -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Drag</title>
+
+    <link rel="stylesheet" href="material.css">
+    <link rel="stylesheet" href="main.css">
+
+    <script defer src="material.js"></script>
+    <script defer src="main.js"></script>
+</head>
+<body>
+
+    <div class="cardWithShadow">
+        <div class="columnFlex">
+            <div class="input-field col s6">
+                <input id="todoname" type="text" class="validate">
+                <label for="todoname">Enter name of ToDo list</label>
+                </div>
+            <a id="submitButton" class="waves-effect waves-light btn">SUBMIT</a>
+        </div>
+    </div>
+
+    <div id="mainList" class="rowFlex overFlow">
+        
+    </div>
+
+    <template id="new_list_template">
+        <div draggable="true" class="columnFlex listWithTitle">
+            <h5 id="titleText">Title</h5>
+            <a id="taskButton" class="waves-effect waves-light btn">Add Task</a>
+            <ul id="list">
+
+            </ul>
+        </div>
+    </template>
+
+    <template id="new_task_template">
+        <li draggable="true" class="eachTask">
+            <span id="nameText">Name</span>
+            <p id="descriptionText">Description</p>
+        </li>
+    </template>
+
+    <template id="add_task_input">
+        <div>
+            <div class="input-field col s6">
+                <input id="taskName" type="text" class="validate">
+                <label for="taskName">Enter task name</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="taskDescription" type="text" class="validate">
+                <label for="taskDescription">Enter task description</label>
+            </div>
+    
+            <a id="submitButton" class="waves-effect waves-light btn">SUBMIT</a>
+        </div>
+    </template>
+</body>
+</html>

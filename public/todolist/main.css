@@ -1,0 +1,85 @@
+body {
+    box-sizing: border-box;
+}
+
+.cardWithShadow {
+    width: 50%;
+    padding: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.card-title {
+    color: black;
+}
+
+#submitButton {
+    width: 30%;
+}
+
+.wholeWidth {
+    width: 100%;
+}
+
+.collection-item {
+    max-width: 90%;
+}
+
+.marginCont {
+    margin: 20px;
+}
+
+.border {
+    border: 1px solid grey;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.rowFlex {
+    display: flex;
+    flex-direction: row;
+}
+
+.overFlow {
+    overflow: scroll;
+}
+
+.rowFlexSpaced {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.columFlex {
+    display: flex;
+    flex-direction: column;
+}
+
+.allCenter {
+    justify-content: center;
+    align-items: center;
+}
+
+.listWithTitle {
+    background-color: white;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    min-width: 30%;
+    max-width: 30%;
+    margin-right: 20px;
+    height: auto;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.eachTask {
+    background-color: white;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    padding: 5px;
+    margin-bottom: 8px;
+}
+
+.btn {
+    widows: 30%;
+}
