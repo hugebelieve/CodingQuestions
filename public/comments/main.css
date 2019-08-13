@@ -1,0 +1,52 @@
+body {
+    box-sizing: border-box; /* helps in padding */
+}
+
+.wholeWidth {
+    width: 100%;
+}
+
+.collection-item {
+    max-width: 90%;
+}
+
+.marginCont {
+    margin: 20px;
+}
+
+.border {
+    border: 1px solid grey;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.rowFlex {
+    display: flex;
+    flex-direction: row;
+}
+
+.rowFlexSpaced {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.columFlex {
+    display: flex;
+    flex-direction: column;
+}
+
+.allCenter {
+    justify-content: center;
+    align-items: center;
+}
+
+#submitButton {
+    width: 20%;
+}
+
+.card-title {
+    color: black;
+}

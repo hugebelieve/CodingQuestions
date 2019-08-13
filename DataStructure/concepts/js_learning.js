@@ -101,3 +101,21 @@ var throttleFunc2 = function(fn, delay){
         }
     }
 }
+
+// Cookies ---------------------------------------------
+// Support by older browser and 4kb storage
+// Stored in string form with expiry date
+// Goes with every web request
+// Used to understand the user
+document.cookie = "key1=value2; expires=Wed, 31 Oct 2020 08:50:17 GMT; path=/index.html; domain=example.com"
+
+// Local Storage ---------------------------------------------
+// for storing any data and never expires if not set
+localStorage.setItem("key","value");
+localStorage.getItem("key");
+
+// Session Storage ---------------------------------------------
+// for storing any data but expires in every session of a specific tab
+sessionStorage.setItem("key","value");
+sessionStorage.getItem("key");
+
