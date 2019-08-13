@@ -16,7 +16,9 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); //use for basic
+app.use(express.static(path.join(__dirname, 'dist'))); //use for new build webpack
+app.use("/react", express.static(path.join(__dirname, 'dist')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -39,6 +41,7 @@ app.use("/submitAlgo", (request,response)=>{
 });
 //Problems
 
+app.use("/react", express.static(path.join(__dirname, 'dist')));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
