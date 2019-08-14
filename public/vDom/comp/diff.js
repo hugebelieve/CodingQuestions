@@ -1,5 +1,13 @@
 import render from './render.js';
 
+var zipIT = function(arr1, arr2){
+    let zipA = [];
+    for(let i=0; i<Math.min(arr1.length, arr2.length); i++){
+        zipA.push([arr1[i],arr2[i]]);
+    }
+    return zipA;
+}
+
 var diffAttr = (oldAttr, newAttr) => {
     let allPatches = [];
     Object.entries(newAttr).forEach(([k,v])=>{
@@ -50,17 +58,10 @@ var diffChildren = (oldChildren, newChildren) => {
     };
 
     return ($parent)=>{
-
-        $parent.childNodes.forEach(($child, index)=>{
-            let patchFunction = childPatches[index]; // a patch function received from diff
-
-            if(patchFunction) //safeguard when innerHTML is considered by DOM as textNode
-                patchFunction($child); //patch on that child element as if it is root
-            else{
-                if($child.nodeName!="#text")
-                    $child.remove(); //extra may present because of slow loading
-            }
-        });
+        for( const [patchF, child] of zipIT(childPatches,$parent.childNodes)){
+            patchF(child);
+        }
+        
 
         addPatched.forEach((patch)=>{
             patch($parent);
@@ -72,7 +73,7 @@ var diffChildren = (oldChildren, newChildren) => {
 
 var diff = (oldNode, newNode)=>{
 
-    if(!newNode){
+    if(newNode==undefined){
         return ($rootNode)=>{
             $rootNode.remove();
             return undefined;
@@ -99,11 +100,10 @@ var diff = (oldNode, newNode)=>{
     }
     
     // diff attributes
-    let diffAttrFunction = diffAttr(oldNode.attr, newNode.attr);
+    let diffAttrFunction = new diffAttr(oldNode.attr, newNode.attr);
 
     // diff children
-    let diffChildrenFunc = diffChildren(oldNode.children, newNode.children);
-
+    let diffChildrenFunc = new diffChildren(oldNode.children, newNode.children);
 
     return ($rootNode) =>{ //called this function as well in return of diffChildren
         diffAttrFunction($rootNode);

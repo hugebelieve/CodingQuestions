@@ -28,12 +28,20 @@ let $vNode = cVirNode(count);
 let $app = render($vNode);
 let rootElement = mount($app, document.getElementById("app")); //actually rootElement is $app and mounted now
 
-setInterval(()=>{
+setInterval(()=>{ // stimulate DOM changes
     count = Math.floor(Math.random()*10);
-    let $newNode = cVirNode(count);
-    const patch = diff($vNode, $newNode);
-    rootElement = patch(rootElement);
-
-    $vNode = $newNode; //reset for next iteration
+    updateCount(count);
 },3000);
 
+function updateCount(cnt){
+    count = cnt;
+    let $newNode = cVirNode(count);
+    patchDOM($newNode);
+}
+
+
+var patchDOM = ($newNode)=>{
+    const patch = diff($vNode, $newNode);
+    rootElement = patch(rootElement);
+    $vNode = $newNode; //reset for next iteration
+}
