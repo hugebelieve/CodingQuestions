@@ -2,6 +2,7 @@
 Interview questions and solutions.
 
 # React Virtual DOM from Scratch
+![RESULT](DataStructure/Triump/react_vdom.gif)
 * [Web Link](https://hugealgo.herokuapp.com/react) - Web page for checking the output of implementation
 * [CODE REF](https://github.com/hugebelieve/CodingQuestions/blob/master/public/vDom/main.js) - Reference to virtual DOM code  and implementation
 
