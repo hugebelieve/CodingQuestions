@@ -119,3 +119,5 @@ localStorage.getItem("key");
 sessionStorage.setItem("key","value");
 sessionStorage.getItem("key");
 
+// Hoisting ---------------------------------------------
+// it is feature of js which takes var and function at top of code initially
