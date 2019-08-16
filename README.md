@@ -18,7 +18,8 @@ Interview questions and solutions.
 # Concepts
 * [Conceps](https://github.com/hugebelieve/CodingQuestions/tree/master/DataStructure/concepts) - Concepts learned while learning
 
-
+# My Resume
+* [Resume](https://github.com/hugebelieve/CodingQuestions/blob/master/resume/CV%20JS%20Developer.pdf)
 
 
 
