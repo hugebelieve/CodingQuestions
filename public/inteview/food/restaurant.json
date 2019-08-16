@@ -1,0 +1,86 @@
+[
+    {
+        "id": 331,
+        "name": "Subway",
+        "rating": 4.1,
+        "eta": 25,
+        "tags": ["American", "Fast Food"]
+    },
+    {
+        "id": 332,
+        "name": "Mc Donalds",
+        "rating": 3,
+        "eta": 30,
+        "tags": ["Burger", "Fast Food"]
+    },
+    {
+        "id": 333,
+        "name": "Pizza Hut",
+        "rating": 4.5,
+        "eta": 20,
+        "tags": ["Pizza", "Italian"]
+    },
+    {
+        "id": 334,
+        "name": "Old Cheeze",
+        "rating": 3.6,
+        "eta": 40,
+        "tags": ["Continental"]
+    },
+    {
+        "id": 335,
+        "name": "New Grill",
+        "rating": 4.3,
+        "eta": 48,
+        "tags": ["French"]
+    },
+    {
+        "id": 336,
+        "name": "Chilli Bowl",
+        "rating": 4.5,
+        "eta": 22,
+        "tags": ["Chinese", "Fast Food"]
+    },
+    {
+        "id": 337,
+        "name": "Ham Way",
+        "rating": 3.7,
+        "eta": 32,
+        "tags": ["American"]
+    },
+    {
+        "id": 338,
+        "name": "Ice Parlour",
+        "rating": 3.4,
+        "eta": 35,
+        "tags": ["American", "Desert"]
+    },
+    {
+        "id": 339,
+        "name": "Cafe Coffee Day",
+        "rating": 4.2,
+        "eta": 30,
+        "tags": ["Breakfast", "Fast Food", "Coffee"]
+    },
+    {
+        "id": 340,
+        "name": "Food Factory",
+        "rating": 3.0,
+        "eta": 25,
+        "tags": ["Brunch", "Fast Food"]
+    },
+    {
+        "id": 341,
+        "name": "Cose Casa",
+        "rating": 4.4,
+        "eta": 15,
+        "tags": ["American", "Fast Food"]
+    },
+    {
+        "id": 342,
+        "name": "Mod Over Donuts",
+        "rating": 4.6,
+        "eta": 22,
+        "tags": ["American", "Desert"]
+    }
+]

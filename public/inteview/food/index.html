@@ -1,0 +1,50 @@
+<!-- 1 hour 45 min -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Food Ordering App</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    
+    <h1>Food Ordering On the Go</h1>
+
+    <div class="onlyRow">
+        <input id="searchBar" class="searchBar" placeholder="Search">
+        <button id="searchButton" class="searchButton">Search</button>
+    </div>
+    <div id="tagsContainer" class="tagsContainer onlyRow">
+
+    </div>
+
+    <div class="onlyRow sorter">
+        <a id="rating">Sort By Rating</a>
+        <a id="name">Sort By Name</a>
+        <a id="eta">Sort By ETA</a>
+    </div>
+
+    <div id="restaurantContainer" class="restaurantContainer onlyRow">
+        
+    </div>
+
+
+    <template id="each_restaurant_template">
+        <div class="eachRestaurant boxShadow onlyColumn pointer">
+            <img class="restaurantImage" src="https://images.pexels.com/photos/6267/menu-restaurant-vintage-table.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+            <label class="restaurantName">Name Of Res</label>
+        </div>
+    </template>
+
+    <template id="each_tag_template">
+        <label class="tagLabel boxShadow pointer"></label>
+    </template>
+
+    <script defer src="main.js"></script>
+    <script defer>
+
+    </script>
+</body>
+</html>
