@@ -6,9 +6,9 @@ let nom = {name: "Bishal"}
 //user call
 print.call(nom, "Mumbai"); // "Bishal Mumbai"
 
-//Put ---------------------------------------------
+//Apply ---------------------------------------------
 //same as call just argument passing is array
-print.call(nom, ["Mumbai"]); // "Bishal Mumbai"
+print.apply(nom, ["Mumbai"]); // "Bishal Mumbai"
 
 //Bind ---------------------------------------------
 //same as call but gives a cloned function in return and then you invoke it later with your argument
@@ -121,3 +121,54 @@ sessionStorage.getItem("key");
 
 // Hoisting ---------------------------------------------
 // it is feature of js which takes var and function at top of code initially
+
+
+// Critical Rendering Path ---------------------------------------------
+// steps for browser rendering
+// DOM tree(Tokenizing,Lexing) -> CSSOM tree -> Combine them -> Compute Geometry -> Painting/Rasterizing
+// Critical path before first paint 
+// Use media="paint" for CSS non blocking
+// Use async in script for non blocking
+// HTML will be that way only one critical path
+// Giving critical inline css saves second network round trip
+
+// HTTP2 ---------------------------------------------
+// Binary Framing - HEADER FRAME & DATA FRAME
+// One TCP connection to one origin and parallel server call will still be on one TCP streaming
+// Stream prioritization
+// Server push - server can push addition css and js time resources on one html call saved 2 network round trip
+// Header Compression
+
+// WebPacks ---------------------------------------------
+// They are just bundler for your html, css/scss and js files
+// these web packs bundle them in few files with auto minified and ES5+ compatibility
+// and feature like tree shaking
+// This all helps in Web Performance and for developer to use new ES6+ as they use polyfills as needs
+
+// Tree Shaking ---------------------------------------------
+import { sortBy } from "lodash"; //still takes in full library as some dependency of function is present
+import * as utils from "../utils";
+// with tree shaking <<<<====
+import sortBy from "lodash-es/sortBy";
+import { simpleSort } from "../utils";
+// This is helpful as bundler will only take one function from library instead of taking full library
+// Tree shaking removed and falls the unwanted node/leaves/code
+
+// Web Worker ---------------------------------------------
+// Lets you to run js longer code in background
+// which free UI thread
+
+// Reduce complexity of CSS ---------------------------------------------
+// use BEM (Block, Element, Modifier)
+// ".card" for main block
+// ".card--dark" for modifiers
+// ".card__img" for child of card
+
+// Render Optimise ---------------------------------------------
+// Avoid using Layout(Re Geometry) and Paint
+// Let only Composite work for update
+//  Use transform which is handled by the Composite only and we can achieve 10ms per frame mark
+
+// Unsplash.it/100/100
+
+

@@ -254,4 +254,10 @@ module.exports = [
             ]}`,
         path: "min_cost_spanning_tree"
     },
+    {
+        url: "minimum_edit_distance",
+        description: "Find minimum number of edits required to convert ‘str1’ into ‘str2’.",
+        egInput: `{"str1":"sunday", "str2": "saturday"}`,
+        path: "minimum_edit_distance"
+    },
 ]
