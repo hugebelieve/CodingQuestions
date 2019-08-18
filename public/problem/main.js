@@ -15,7 +15,25 @@ function compose(...FuncArgs){
     return innerFunction;
 }
 
-var newFunc = compose(
+function compose2(...FuncArgs){
+    let functionArray = [...FuncArgs];
+    return function(...args){
+        if(functionArray.length==0){
+            return "No function available";
+        }
+        let result = [...args];
+        for(let i=functionArray.length-1; i>=0; i--){
+            let currentExecute = functionArray[i];
+            if(typeof(currentExecute)!="function"){
+                return "Exception please make sure initial inputs are functions!"
+            }
+            result = [currentExecute.call(this,...result)];
+        }
+        return result[0]; //since each function return only one result
+    }
+}
+
+var newFunc = compose2(
     (a)=>{return a*2},
     (a)=>{return a*3},
     (a)=>{return a*4}
