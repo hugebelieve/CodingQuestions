@@ -260,4 +260,10 @@ module.exports = [
         egInput: `{"str1":"sunday", "str2": "saturday"}`,
         path: "minimum_edit_distance"
     },
+    {
+        url: "determine_health",
+        description: "Determine health of DNA.",
+        egInput: `{"str":"6\\na b c aa d b\\n1 2 3 4 5 6\\n3\\n1 5 caaab\\n0 4 xyz\\n2 4 bcdybc"}`,
+        path: "determine_dna_health"
+    },
 ]
