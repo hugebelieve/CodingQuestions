@@ -1,3 +1,9 @@
+// Input
+// const targetFn = compose(f1, f2, f3, f4,...fn);
+// call - targetFn(1,2,3)
+// Output
+// result = f1( f2( f3( ...fn(1,2,3)))
+
 function compose(...FuncArgs){
     let functionArray = [...FuncArgs];
     let result = null;
