@@ -1,3 +1,28 @@
+// var vs let ---------------------------------------------
+// var is function-scope
+function varS(){
+    for(var i=0; i<3;i++) console.log(i);
+    
+    console.log(i); //gives 2 and no error
+}
+// let is block-scope
+function varS(){
+    for(let i=0; i<3;i++) console.log(i);
+    
+    console.log(i); //gives error i not defined
+}
+
+// Primitive values and Reference values
+// Primitive - number, string, bool, null, undefined - her directly value placed in stack and directly value referenced
+// Reference - object - this actually creates a pointer in stack and then pointer ref to value
+
+// Callback, promise and Observer and async/await ---------------------------------------------
+// Callback are basic for solving async activity - pass in anonymous function
+// Promise is just a better way to avoid callback inside callback -  you can chin with then
+// Observer are things you can subscribe to - like IntersectionObserver in website
+// async/await used promises again but gives much cleaner code for calling it
+//     use try/catch with it or it will throw error for reject
+
 // Call ---------------------------------------------
 // used to pass "this" to a function
 let print = function(city){ console.log(this.name + " " + city); }
