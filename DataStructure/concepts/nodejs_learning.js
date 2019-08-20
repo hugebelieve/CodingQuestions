@@ -63,4 +63,14 @@ require('fs').readFile("path", (error, data)=>{  });
 // Single Thread
 // Lack of Maturity
 
+// Threat in NodeJS ---------------------------------------------
+// Snyk is security scanning platform
+// SQL injection
+// Cross-site attacks
+// DOS attack - limit concurrent request
+// Encrypt secrets files
+// HTTP request header for extra security
+// JWT token using Passport.js
+// Avoid JS eval
+// Hide Error details from client map them
 

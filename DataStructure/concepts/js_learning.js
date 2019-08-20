@@ -51,7 +51,7 @@ Function.prototype.myBind = function(...args){ //function 1
     }
 }
 
-// aync and defer while loading script ---------------------------------------------
+// async and defer while loading script ---------------------------------------------
 // <script src="ex.js"></script> ==> stops html parsing for both
 // download and execution of js happens in between
 // <script async src="ex.js"></script> ==> stop html parsing for executing
