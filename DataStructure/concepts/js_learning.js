@@ -196,4 +196,6 @@ import { simpleSort } from "../utils";
 
 // Unsplash.it/100/100
 
-
+// stopPropagation Vs preventDefault ---------------------------------------------
+// preventDefault stops browser default event like "a" tag click and its href behaviour
+// stopPropagation stops Bubbling and Capturing
