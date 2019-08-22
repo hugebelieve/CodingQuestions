@@ -50,3 +50,25 @@
 // Container with state and have logic mostly
 // Presentation components mostly use props to show an element, better to keep stateless
 
+// Redux ---------------------------------------------
+// It is a state management tool for the whole app
+// Store -> createStore(combinedReducer) -> dispatch ( -> subscribe )
+// Provider to pass store in App (main)
+// useSelector for getting store value
+// useDispatch - has type and payload/data
+
+// Pure component ---------------------------------------------
+// React.PureComponent does a shallow comparison on state change before render
+// So in our case wew will no need shouldComponentUpdate()
+
+// React store only support synchronous data flow
+// So we have middleware tp rescue
+
+// MiddleWare Thunk
+// Action creator(function doing async things) - call from UI
+// Then it passes it to reducer
+
+// MiddleWare Saga
+// Catches the action in between and does async
+// Then it passes it to reducer
+
