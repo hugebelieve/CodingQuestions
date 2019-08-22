@@ -146,6 +146,7 @@ sessionStorage.getItem("key");
 
 // Hoisting ---------------------------------------------
 // it is feature of js which takes var and function at top of code initially
+// not exactly top of code but add to top of its own function scope
 
 
 // Critical Rendering Path ---------------------------------------------
@@ -199,3 +200,17 @@ import { simpleSort } from "../utils";
 // stopPropagation Vs preventDefault ---------------------------------------------
 // preventDefault stops browser default event like "a" tag click and its href behaviour
 // stopPropagation stops Bubbling and Capturing
+
+// Destructuring & Spread ---------------------------------------------
+function InArg(a, ...args){
+    // args is array
+}
+InArg(1,2,4,5);
+// --
+let {a,b,...z} = {a:1,b:2,c:3,d:4}
+// a -> 1, b -> 2, z -> {c:3, d:4}
+// --
+function desT({ x, y, ...z }){}
+
+
+
