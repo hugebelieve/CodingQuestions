@@ -74,3 +74,5 @@ require('fs').readFile("path", (error, data)=>{  });
 // Avoid JS eval
 // Hide Error details from client map them
 
+// ORM (object Relation Mapping) in MySQL
+// ODM (Object Document Mapping) in Mongo - mongoose

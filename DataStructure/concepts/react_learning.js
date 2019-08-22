@@ -27,7 +27,7 @@
 // Code Splitting / Lazy-Loading ---------------------------------------------
 // One main.js file can be huge and can take time for huge app
 // So better split it, considering user may only view home page
-// React has Lazy-Loading
+// React has Lazy-Loading with routes
 
 // CSS-in-JS ---------------------------------------------
 // Actually React does inline css of the styles we pass
@@ -46,29 +46,30 @@
 // <reversedName>Hello</reversedName>
 //=> <span>olleH</span>
 
-// Container Vs Presentational Component
+// Container(StateFul) Vs Presentational Component(StateLess)
 // Container with state and have logic mostly
 // Presentation components mostly use props to show an element, better to keep stateless
 
 // Redux ---------------------------------------------
 // It is a state management tool for the whole app
 // Store -> createStore(combinedReducer) -> dispatch ( -> subscribe )
+// So reducer has the functions and can change you state in return
 // Provider to pass store in App (main)
 // useSelector for getting store value
 // useDispatch - has type and payload/data
 
 // Pure component ---------------------------------------------
 // React.PureComponent does a shallow comparison on state change before render
-// So in our case wew will no need shouldComponentUpdate()
+// So in our case we will no need shouldComponentUpdate()
 
 // React store only support synchronous data flow
 // So we have middleware tp rescue
 
-// MiddleWare Thunk
+// MiddleWare Thunk ---------------------------------------------
 // Action creator(function doing async things) - call from UI
 // Then it passes it to reducer
 
-// MiddleWare Saga
+// MiddleWare Saga ---------------------------------------------
 // Catches the action in between and does async
 // Then it passes it to reducer
 

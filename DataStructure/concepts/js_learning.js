@@ -54,7 +54,7 @@ Function.prototype.myBind = function(...args){ //function 1
 // async and defer while loading script ---------------------------------------------
 // <script src="ex.js"></script> ==> stops html parsing for both
 // download and execution of js happens in between
-// <script async src="ex.js"></script> ==> stop html parsing for executing
+// <script async src="ex.js"></script> ==> stop html parsing for executing (sequence can be messed up while execution)
 // download async and execution of js happens in between and sometimes fails to run js code in given sequence
 // <script defer src="ex.js"></script> ==> html parsing doesn't stop
 // download async and execution only after all html is parsed and also run js code in give sequence
@@ -154,7 +154,7 @@ sessionStorage.getItem("key");
 // DOM tree(Tokenizing,Lexing) -> CSSOM tree -> Combine them -> Compute Geometry -> Painting/Rasterizing
 // Critical path before first paint 
 // Use media="paint" for CSS non blocking
-// Use async in script for non blocking
+// Use async(or better deffer) in script for non blocking
 // HTML will be that way only one critical path
 // Giving critical inline css saves second network round trip
 
@@ -211,6 +211,3 @@ let {a,b,...z} = {a:1,b:2,c:3,d:4}
 // a -> 1, b -> 2, z -> {c:3, d:4}
 // --
 function desT({ x, y, ...z }){}
-
-
-
