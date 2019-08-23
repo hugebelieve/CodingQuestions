@@ -353,12 +353,28 @@ Ram.lift = function(func){
         let result = [];
         for(let i=0; i<arguments.length; i++){
             let values = arguments[i];
+            let newArrayToConcat = [];
             for(j=0;j<values.length;j++){
-                result.push(curryF(values[j]));
+                if(i==0){
+                    newArrayToConcat.push(curryF(values[j]));
+                }else{
+                    let newResult  = result.map(eachFunc=>{
+                        return eachFunc(values[j])
+                    });
+                    newArrayToConcat = newArrayToConcat.concat(newResult);
+                }
             }
+            result = newArrayToConcat;
         }
-
-        return lifter(args);
+        return result;
     }
 }
-
+const madd3 = Ram.lift((a, b, c) => a + b + c);
+const madd5 = R.lift((a, b, c, d, e) => a + b + c + d + e);
+console.log( 
+    "Lift : ",
+    "\n-madd3([1,2,3], [1,2,3], [1]); -> ",
+    madd3([1,2,3], [1,2,3], [1]),
+    "\n-madd5([1,2], [3], [4, 5], [6], [7, 8]); -> ",
+    madd5([1,2], [3], [4, 5], [6], [7, 8])
+);

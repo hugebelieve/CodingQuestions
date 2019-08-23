@@ -222,3 +222,8 @@ function desT({ x, y, ...z }){}
 // Powerful string concatenation ---------------------------------------------
 "1" + true //=> "1true" -- literal double quotes on secong
 "1" + ["few;","more"] //=> "1few;,more"
+
+// Window.onload and document onload ---------------------------------------------
+// Document load happens first when ll elements re placed in DOM.
+// Window load happens when all resources of webpage is loaded like images and all, so it is slower
+
