@@ -78,7 +78,9 @@ var newPreserveFunction = new Closure(4); // "4" becomes closure value
 // It is used to make clones of function with saved scope/closure inside it
 // We can use bind or closure
 var funcToCurry = function( x, y) { return x*y; }
+funcToCurry.length //=>2
 var multiplyByTwo = funcToCurry.bind(this, 2); //"this" can be any scope, and "2" becomes "BoundArgs"
+multiplyByTwo.length //=>1
 multiplyByTwo(3) = 6; //can be done with closure as well
 // So we can make different clone functions from one function which is currying
 
@@ -211,3 +213,12 @@ let {a,b,...z} = {a:1,b:2,c:3,d:4}
 // a -> 1, b -> 2, z -> {c:3, d:4}
 // --
 function desT({ x, y, ...z }){}
+
+// Pure functions ---------------------------------------------
+// It is a function which gives you the same result
+// for a given same argument
+// it means there is nothing extra element to change logic inside it
+
+// Powerful string concatenation ---------------------------------------------
+"1" + true //=> "1true" -- literal double quotes on secong
+"1" + ["few;","more"] //=> "1few;,more"
