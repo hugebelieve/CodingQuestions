@@ -60,7 +60,14 @@ Function.prototype.myBind = function(...args){ //function 1
 // download async and execution only after all html is parsed and also run js code in give sequence
 
 // Prototype ---------------------------------------------
+// It is delegation of object thats it
 [""].__proto__.__proto__  // - gives an object of many functions and properties
+// VS prototype syntax
+function Dog(){ this.getBreed = function(){return this.breed;} }
+Dog.prototype.breed = "Bull";
+// Only function can have this prototype and not other variables not even object
+let myDog = new Dog(); // so .prototype is specially for creating class constructor and can get its value with "this"
+myDog.getBreed(); //=>Bull
 
 // Event Propagation - bubbling and capturing/trickling ---------------------------------------------
 document.querySelector("#child").addEventListener('click',(e)=>{e.stopPropagation()}, false); //capturing false
@@ -226,4 +233,36 @@ function desT({ x, y, ...z }){}
 // Window.onload and document onload ---------------------------------------------
 // Document load happens first when ll elements re placed in DOM.
 // Window load happens when all resources of webpage is loaded like images and all, so it is slower
+
+// With in JS ---------------------------------------------
+function getPI(){
+    with (Math) {
+        return PI; //Auto attach Math in front
+    }
+}
+
+//"use strict" ---------------------------------------------
+// Stays in function scope, used for actual resource optimization
+function test(){
+    b= 5; //won't create a global variable automatically and will give error when call test()
+}
+var obj = {};
+Object.defineProperty(obj,"x", {value: 2, writable: false});
+obj.x = 3; //this will give error in strict and won't execute if not strict mode
+function getPI(){
+    with (Math) { // with not allowed in Strict
+        return PI;
+    }
+}
+
+
+// Why Functional programming ---------------------------------------------
+// Higher order functions -  function can be values and you can pass then around
+// So you can do compose and make small functions inside a function
+// Maybe more pure/reuseable functions make it faster for development and bug free
+
+// Higher order function ---------------------------------------------
+// Function which takes in a function as argument like "Filter"
+// Can happen in functional programming since function are values in that.
+
 

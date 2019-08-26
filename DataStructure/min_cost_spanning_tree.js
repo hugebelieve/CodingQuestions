@@ -28,7 +28,7 @@ var minCostSpanningTree =  function(graph){
 
     let disjSet = {}; // <<<=== Disjoint set implementation
     Object.keys(graph.vertices).forEach((key)=>{
-        disjSet[key] = [key,0]; // [point, level]
+        disjSet[key] = [key,0]; // [pointedTo, level]
     });
 
     let finalGroup = [];

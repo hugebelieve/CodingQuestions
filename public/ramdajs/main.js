@@ -1,3 +1,31 @@
+Array.prototype.myFilter = function(cbFunc){
+    if(!Array.isArray(this)){
+        return this;
+    }
+    let result = [];
+    for(let i=0; i<this.length; i++ ){
+        if( cbFunc(this[i])==true){
+            result.push(this[i]);
+        }
+    }
+    return result;
+}
+class callFilter{
+
+    constructor(){
+        this.max = 5;
+        this.a = [2,3,5,89,5,90];
+    }
+    getFilter(){
+        return (this.a.myFilter((val)=>{
+            return val<this.max
+        }));
+    }
+}
+
+let c = new callFilter();
+
+
 var Ram = {}; //Global
 
 // Add - Adds two values --------------------------------------------- 1
@@ -354,7 +382,7 @@ Ram.lift = function(func){
         for(let i=0; i<arguments.length; i++){
             let values = arguments[i];
             let newArrayToConcat = [];
-            for(j=0;j<values.length;j++){
+            for(let j=0;j<values.length;j++){
                 if(i==0){
                     newArrayToConcat.push(curryF(values[j]));
                 }else{

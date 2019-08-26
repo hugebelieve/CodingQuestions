@@ -23,10 +23,14 @@ app.use("/react", express.static(path.join(__dirname, 'dist')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-//Problems
-var allUrl = require("./DataStructure/url");
+//Problems DA
 app.use("/allUrl", (request,response)=>{
   response.send(require("./DataStructure/url"));
+});
+
+// Problem Algo
+app.use("/allUrlAlgo", (request,response)=>{
+  response.send(require("./Algo/url"));
 });
 
 app.use("/submitAlgo", (request,response)=>{
@@ -39,7 +43,19 @@ app.use("/submitAlgo", (request,response)=>{
     response.send(result);
   }
 });
-//Problems
+
+app.use("/runAlgo", (request,response)=>{
+  let userData = request.body;
+  let filePath = require("./Algo/"+userData.path);
+  let result = filePath.runAlgo(JSON.parse(userData.argsJson==""?"{}":userData.argsJson));
+  if(typeof(result)=="number"){
+    response.send(""+result);
+  } if(typeof(result)=="string"){
+    response.send(result.replace(/\n/g, "<br>"));
+  } else{
+    response.send(result);
+  }
+});
 
 app.use("/react", express.static(path.join(__dirname, 'dist')));
 
