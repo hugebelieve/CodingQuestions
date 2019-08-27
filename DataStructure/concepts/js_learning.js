@@ -255,7 +255,6 @@ function getPI(){
     }
 }
 
-
 // Why Functional programming ---------------------------------------------
 // Higher order functions -  function can be values and you can pass then around
 // So you can do compose and make small functions inside a function
@@ -265,4 +264,6 @@ function getPI(){
 // Function which takes in a function as argument like "Filter"
 // Can happen in functional programming since function are values in that.
 
-
+// Persistent vs non-persistent data
+// Persistent is data available even after closing
+// Non-Persistent is when data not available after closing

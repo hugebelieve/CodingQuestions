@@ -73,3 +73,8 @@
 // Catches the action in between and does async
 // Then it passes it to reducer
 
+// Advantage ---------------------------------------------
+// Facilitates process of components
+// Faster rendering with Virtual DOM
+// Server side rendering hence SEO friendly (but for optimization of paint not so much)
+// React Native

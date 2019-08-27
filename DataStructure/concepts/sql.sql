@@ -1,0 +1,1 @@
+SELECT id, CASE WHEN count(CASE WHEN RESULT==1 THEN 1 END)>1 THEN 'Fail' ELSE 'Pass' End as 'Status' from result_table GROUP BY id,result
