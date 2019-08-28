@@ -26,7 +26,7 @@ let data = require('fs').readFileSync("path");
 
 // Scale NodeJS ---------------------------------------------
 // 1. Cloning using Cluster module
-// 2. Decomposing the application in smaller micro-services
+// 2. Decomposing the application in smaller micro-services (Elastic Load Balancer)
 
 // Stream ---------------------------------------------
 // Chunk of data that may not available at once as does fit in memory.
@@ -37,7 +37,7 @@ let data = require('fs').readFileSync("path");
 
 // Event Loop ---------------------------------------------
 // NodeJS is single threaded supports concurrency with events and callbacks
-// Event loop checks "Event Que"(not stack) and push to Execution stack
+// Event loop checks "Event Que"(not stack) and push to "Execution stack"
 
 // Error - First callback
 require('fs').readFile("path", (error, data)=>{  });

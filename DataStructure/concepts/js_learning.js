@@ -97,6 +97,7 @@ multiplyByTwo(3) = 6; //can be done with closure as well
 // and then only makes the actual call for the code of website
 
 // Debouncing ---------------------------------------------
+// Fixing time between two *consecutive* action
 // Optimization technique // this consider a delay between two calls and clears previous calls
 // onkeyup search suggestion
 var suggestionAPI = function(val1, val2) {}
@@ -112,6 +113,7 @@ var debounceFunc = function(fn, delay){
 var newSuggestionAPIFunction = debounceFunc(suggestionAPI, 300);
 
 // Throttling ---------------------------------------------
+// Fixing time between two action, may not be consecutive
 // Optimization technique // this consider a delay between two calls and a definite call after time
 // onkeyup search suggestion
 var throttleFunc = function(fn, delay){

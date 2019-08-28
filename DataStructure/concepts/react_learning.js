@@ -62,7 +62,7 @@
 // React.PureComponent does a shallow comparison on state change before render
 // So in our case we will no need shouldComponentUpdate()
 
-// React store only support synchronous data flow
+// Redux store only support synchronous data flow
 // So we have middleware tp rescue
 
 // MiddleWare Thunk ---------------------------------------------

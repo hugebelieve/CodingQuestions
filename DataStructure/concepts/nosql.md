@@ -10,6 +10,7 @@
 > Flexible than SQL as you are not restricted to specific columns
 > Fast than traditional DB
 > BSON - Binary JSON
+> Aggregators - map,reduce
 
 #Namespace
 > concat of collection and document name
@@ -21,7 +22,7 @@
 > Faster because of efficient indexing and storage techniques
 
 #Primary key foreign key
-> Cannot achieve directly by can be done inserting address document inside user documents
+> Cannot achieve directly by can be done inserting address document inside user documents (nesting)
 
 #Lazy writes
 > 60 sec write operation to actual disk
@@ -48,6 +49,5 @@
 
 #Aggregation in MongoDB
 > Groups the values got from the DB
-> map-reduce function
+> map,reduce function
 > And commands like JS code/function
-
