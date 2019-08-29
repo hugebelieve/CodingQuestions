@@ -76,3 +76,5 @@ require('fs').readFile("path", (error, data)=>{  });
 
 // ORM (object Relation Mapping) in MySQL
 // ODM (Object Document Mapping) in Mongo - mongoose
+
+// Local strategies with Passport.JS
