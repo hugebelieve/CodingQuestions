@@ -269,3 +269,35 @@ function getPI(){
 // Persistent vs non-persistent data
 // Persistent is data available even after closing
 // Non-Persistent is when data not available after closing
+
+// Object.create(obj); ---------------------------------------------
+// let newObj = Object.create(obj);
+// newObj becomes {} and obj get delegated to newObj as __proto__
+
+// Object oriented in JS ---------------------------------------------
+let obj = {
+    get year() {  return this.year; },
+    set year(newY) { this.year = newY; }
+}
+obj.year = 89; //==> obj.year(89) will give exception
+obj.year //==> 89
+// **** above will give max callback stack error
+// because you are making a loop by calling the same thing inside
+let obj2 = {
+    get year1() {  return this.year; },
+    set year2(newY) { this.year = newY; }
+}
+obj2.year2 = 90; //set
+console.log(obj2.year2); //totally undefined ** for interview
+console.log(obj2.year); //==> 90
+Object.defineProperty(obj2, 'fixedVal', {
+    value: 42,
+    writable: false
+  });
+obj.fixedVal = 90;
+console.log(obj.fixedVal); //==> 42
+
+// LRU Cache ---------------------------------------------
+// we want a DS with search complexity O(1) and add/remove complexity also O(1)
+// This can be achieved by combining multiple D
+// Here we can achieve with HashMap and Doubly-link-list

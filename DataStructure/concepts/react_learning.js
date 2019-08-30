@@ -78,3 +78,17 @@
 // Faster rendering with Virtual DOM
 // Server side rendering hence SEO friendly (but for optimization of paint not so much)
 // React Native
+
+// Routing ang guard ---------------------------------------------
+// react-router-dom <Route></Route> parent wrap which passes "history" with props for route change
+// Seperate component which will have if..else for auth check to push out component
+
+// Function comp and Class comp ---------------------------------------------
+// Class you extend React.Component
+// Function comp is stateless just create an arrow func and pass in props as argument
+// use can use react hooks to create functional comp with state
+// {useState} to get state in functional comp
+// {useEffect} which gives first arg as cb and send is variable to watch like Angular
+// so inside useEffect cb to update useState value
+// use get set to get/update the state values
+// const [a,b] = useState([1,2]); 

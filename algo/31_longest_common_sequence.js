@@ -22,7 +22,7 @@ function longestLength(str1, str2){
         }
     }
 }
-longestLength("AGGTAB","GXTXAYB");
+longestLength("AGGTAB","AGXTXAYB");
 
 module.exports = {
     runAlgo: longestLength
