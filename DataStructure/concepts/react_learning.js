@@ -92,3 +92,21 @@
 // so inside useEffect cb to update useState value
 // use get set to get/update the state values
 // const [a,b] = useState([1,2]); 
+
+// Diffing Algorithm ---------------------------------------------
+// BFS(not DFS) and on change find update the whole sub-tree when type is changed like  (div - span)
+// MVC - Model(vDOM & state) - View (DOM) - Controller (Events and API calls)
+// Diffing is Heuristic Algorithm with 2 assumptions
+// 1. Two element of different types will produce diff tree
+// 2. Developer can hint what comp to be stable with shouldComponentUpdate
+// Complexity from O(n^3) to just O(n)
+// for diff old vDOM is used so that (Reflow) in browser doesn't happens
+// while getting params like margin and width, browser does reflow and updates DOM causes resources usage
+
+// Performance tools ---------------------------------------------
+// 'react-addons-pref'
+// Pref.start() Pref.stop()
+// Pref.printInclusive()
+// Pref.printExclusive()
+// Pref.printWasted() //useful to check is some component can have shouldComponentUpdate return false
+// Pref.printOperations()

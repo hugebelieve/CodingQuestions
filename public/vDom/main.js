@@ -35,7 +35,7 @@ setInterval(()=>{ // stimulate DOM changes
 
 function updateCount(cnt){
     count = cnt;
-    let $newNode = cVirNode(count);
+    let $newNode = cVirNode(count);// every time full vDOM is created 200K node in sec
     patchDOM($newNode);
 }
 

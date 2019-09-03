@@ -68,6 +68,11 @@ Dog.prototype.breed = "Bull";
 // Only function can have this prototype and not other variables not even object
 let myDog = new Dog(); // so .prototype is specially for creating class constructor and can get its value with "this"
 myDog.getBreed(); //=>Bull
+// Why?
+// When let z = new Dog(); is called
+// getBeard will get copied and new variable will be created
+// but breed will get inherited and won't get copied
+// * So user prototype always to reduce amount of new values created and resources lost
 
 // Event Propagation - bubbling and capturing/trickling ---------------------------------------------
 document.querySelector("#child").addEventListener('click',(e)=>{e.stopPropagation()}, false); //capturing false

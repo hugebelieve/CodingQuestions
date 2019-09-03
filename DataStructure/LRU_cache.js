@@ -49,27 +49,36 @@ class NodeLRU {
         this.value = null;
     }
 }
+
+// Least recently Used (LRU)
 class LRU2{ // LRU optimized with head as latest
     constructor(cacheSize){
+        console.log(cacheSize);
+        
         this.cacheSize = cacheSize;
         this.headNode = new NodeLRU();
         this.tailNode = new NodeLRU();
+        this.headNode.next = this.tailNode;
+        this.tailNode.prev = this.headNode;
         this.map = new Map(); //cache value and length
     }
 
     addCache(key,value){
         if(this.map.get(value)){
             //already present move to start
-            moveToHead(this.map.get(value));
-        }else if(this.cache.length==this.cacheSize){
-            let newNode = new NodeLRU();
-            newNode.key = key;
-            newNode.value = value;
-            this.map.set(key,newNode);
+            this.moveToHead(this.map.get(value));
+            return
+        }
+        let newNode = new NodeLRU();
+        newNode.key = key;
+        newNode.value = value;
+        this.map.set(key,newNode);
 
-            addHead(newNode);
+        this.addHead(newNode);
+
+        if(this.map.size>this.cacheSize){
             //remove one
-            let lastKey = removeLast();
+            let lastKey = this.removeLast();
             this.map.delete(lastKey);
         }
     }
@@ -100,7 +109,7 @@ class LRU2{ // LRU optimized with head as latest
     removeLast(){
         let lastNode = this.tailNode.prev;
         lastNode.prev.next = this.tailNode;
-        this.tailNode = this.lastNode.prev;
+        this.tailNode.prev = lastNode.prev;
         return lastNode.key;
     }
 
@@ -109,9 +118,42 @@ class LRU2{ // LRU optimized with head as latest
         if(!target){
             return -1;
         }else{
-            moveToHead(target);
+            this.moveToHead(target);
             return target.value;
         }
+    }
+
+    clearCache(){
+        this.headNode.next = this.tailNode;
+        this.tailNode.prev = this.headNode;
+
+        this.headNode.prev = null;
+        this.tailNode.next = null;
+    }
+
+    reverseLinedList(){
+        this.recurReverse(null, this.headNode, this.headNode.next);
+        let oldHead = this.headNode;
+        this.headNode = this.tailNode;
+        this.tailNode = oldHead;
+    }
+
+    recurReverse(prevNode, node, nextNode){ //3 pointer
+        node.next = prevNode;
+        node.prev = nextNode;
+        if(nextNode==null){
+            return "Done";
+        }
+        let loopNext = nextNode.next;
+        nextNode.next = node;
+
+
+
+        if(node.prev==null || nextNode==null){
+            return "Done";
+        }
+
+        return this.recurReverse(node,nextNode,loopNext);
     }
 }
 
