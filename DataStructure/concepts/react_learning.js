@@ -81,7 +81,7 @@
 
 // Routing ang guard ---------------------------------------------
 // react-router-dom <Route></Route> parent wrap which passes "history" with props for route change
-// Seperate component which will have if..else for auth check to push out component
+// Separate component which will have if..else for auth check to push out component
 
 // Function comp and Class comp ---------------------------------------------
 // Class you extend React.Component
