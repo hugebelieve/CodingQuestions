@@ -1,7 +1,7 @@
 //source - https://leetcode.com/problems/coin-change/
 
 var calculateCoinChange = function({coins,amount}){
-    coins = coins.sort((a,b)=>a<b); //desc
+    //coins = coins.sort((a,b)=>a<b); //desc
     return "Minimum change possible count "+getMinCoinsRec(coins , amount, {});
 };
 

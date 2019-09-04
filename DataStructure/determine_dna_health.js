@@ -1,6 +1,16 @@
 // Source - https://www.hackerrank.com/challenges/determining-dna-health/problem
 
-// Input - 
+// Sample Input
+// 6
+// a b c aa d b
+// 1 2 3 4 5 6
+// 3
+// 1 5 caaab
+// 0 4 xyz
+// 2 4 bcdybc
+
+// Sample Output
+// 0 19
 
 var Node = class {
     constructor() {

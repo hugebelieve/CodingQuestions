@@ -13,7 +13,7 @@
 
 //Output: false
 
-//Used Breadth first search ,i.e., explore current before going to next
+//Used Depth first search ,i.e., explore current before going to next
 var findIfCyclic = ({graph})=>{
 
     let freshSet = Object.keys(graph.vertices);

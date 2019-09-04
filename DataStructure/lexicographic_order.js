@@ -6,7 +6,7 @@
 
 var lexicographicOrder = function({word}){
 
-    let firstP = word.split("").sort((a,b)=>a>b).join("");
+    let firstP = word.split("").sort((a,b)=>a>b).join(""); //ascending
     let result = [firstP];
     let pPossible = true;
     let wordA = firstP.split("");

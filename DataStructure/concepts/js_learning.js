@@ -74,6 +74,22 @@ myDog.getBreed(); //=>Bull
 // but breed will get inherited and won't get copied
 // * So user prototype always to reduce amount of new values created and resources lost
 
+// __proto__ - anything in proto can be changed globally ---------------------------------------------
+var foo = function(){
+    let closureForThis = "closure_value"; //closure are fixed once called new or return
+    this.getClosure = function(){ return closureForThis; }
+}
+foo.prototype.goingToProto = "value_seen_in__proto__";
+let functionC = new foo();
+// getClosure is part of functionC
+// closureForThis is closure for getClosure function
+// goingToProto is in __proto__ of functionC
+class Bar{
+    constructor(){ this.becomePart = "part_of_new_variable"; } //becomePart doesn't go to proto or anything
+}
+Bar.prototype.goesToProto = "value_seen_in__proto__";
+let classC = new Bar();
+
 // Event Propagation - bubbling and capturing/trickling ---------------------------------------------
 document.querySelector("#child").addEventListener('click',(e)=>{e.stopPropagation()}, false); //capturing false
 //Event always does both capturing and bubbling on click and then call callbacks accordingly
@@ -277,6 +293,7 @@ function getPI(){
 
 // Object.create(obj); ---------------------------------------------
 // let newObj = Object.create(obj);
+// let newFun = Object.create(oldFunc); // create new Obj with oldFunc inside __proto__
 // newObj becomes {} and obj get delegated to newObj as __proto__
 
 // Object oriented in JS ---------------------------------------------
