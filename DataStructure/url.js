@@ -267,9 +267,9 @@ module.exports = [
         path: "determine_dna_health"
     },
     {
-        url: "stone_break",
-        description: "Last stone weight after break.",
+        url: "last_remaining_number",
+        description: "Last remaining number after subtracting biggest two.",
         egInput: "[2,4,8,5,9,14]",
-        path: "stone_break"
+        path: "last_remaining_number"
     },
 ]
