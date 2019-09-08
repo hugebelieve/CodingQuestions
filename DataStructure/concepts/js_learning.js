@@ -84,11 +84,23 @@ let functionC = new foo();
 // getClosure is part of functionC
 // closureForThis is closure for getClosure function
 // goingToProto is in __proto__ of functionC
+
 class Bar{
     constructor(){ this.becomePart = "part_of_new_variable"; } //becomePart doesn't go to proto or anything
 }
 Bar.prototype.goesToProto = "value_seen_in__proto__";
 let classC = new Bar();
+
+
+// __proto__ vs Prototype ---------------------------------------------
+// Prototype is part of function only
+// so that when you use "new" keyword in front of it the Prototype will go to __proto__ of new variable
+var prototype = function(){this.name = "self";}
+prototype.prototype.newValue = 89;
+// prototytpe -> { name: "self", prototype:{newValue: 89}, __proto__: f() }
+let newValue = new prototype();
+// newValue -> type="prototytpe"(function name we defined)
+// -> { name: "self", __proto__: { newValue: 89, constructor: f(), __proto__: Object } }
 
 // Event Propagation - bubbling and capturing/trickling ---------------------------------------------
 document.querySelector("#child").addEventListener('click',(e)=>{e.stopPropagation()}, false); //capturing false
