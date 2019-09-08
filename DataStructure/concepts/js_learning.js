@@ -323,3 +323,6 @@ console.log(obj.fixedVal); //==> 42
 // we want a DS with search complexity O(1) and add/remove complexity also O(1)
 // This can be achieved by combining multiple D
 // Here we can achieve with HashMap and Doubly-link-list
+
+// Big O ---------------------------------------------
+// How does the runtime of the function grows as the Input grows?

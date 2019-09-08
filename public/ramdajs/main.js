@@ -406,3 +406,153 @@ console.log(
     "\n-madd5([1,2], [3], [4, 5], [6], [7, 8]); -> ",
     madd5([1,2], [3], [4, 5], [6], [7, 8])
 );
+
+// Adjust --------------------------------------------- 13
+// Applies a function to the value at the given index of an array
+// R.adjust(1, R.toUpper, ['a', 'b', 'c', 'd']);      //=> ['a', 'B', 'c', 'd']
+// R.adjust(-1, R.toUpper, ['a', 'b', 'c', 'd']);     //=> ['a', 'b', 'c', 'D']
+
+Ram.adjust = function(index, func, array){
+    if(isNaN(index) || typeof(func)!="function" || !Array.isArray(array)){
+        return "Provide proper input!";
+    }
+    let newArray = [].concat(array);
+    if(index<0 || index>=array.length){
+        return newArray;
+    }
+    let result = func.call(this,newArray.splice(index,1)[0]);
+
+    newArray.splice(index,0,result);
+    return newArray;
+}
+
+console.log( 
+    "Adjust : ",
+    "\n-R.adjust(1, R.toUpper, ['a', 'b', 'c', 'd']); -> ",
+    Ram.adjust(1, R.toUpper, ['a', 'b', 'c', 'd'])
+);
+
+// all --------------------------------------------- 14
+// const equals3 = R.equals(3);
+// R.all(equals3)([3, 3, 3, 3]); //=> true
+// R.all(equals3)([3, 3, 1, 3]); //=> false
+// First function takes in boolean function
+
+Ram.all = function(func){
+    if(typeof(func)!="function"){
+        return "Please provide proper input!";
+    }
+    let ref = this;
+    return function(array){
+        if(!Array.isArray(array)){
+            return "please provide an array";
+        }
+        for(let i=0; i<array.length; i++){
+            if(!func.call(ref,array[i])){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+console.log( 
+    "Adjust : ",
+    "\n-R.all(equals3)([3, 3, 3, 3]); -> ",
+    Ram.all(R.equals(3))([3, 3, 3, 3]),
+    "\n-R.all(equals3)([3, 3, 1, 3]); -> ",
+    Ram.all(R.equals(3))([3, 3, 1, 3])
+);
+
+// always --------------------------------------------- 15
+// const t = R.always('Tee');
+// t(); //=> 'Tee'
+
+Ram.always = function(constant){
+    return function(){
+        return constant;
+    }
+}
+
+console.log( 
+    "Adjust : ",
+    "\n-R.always('Tee')(); -> ",
+    Ram.always('Tee')()
+);
+
+// pipe --------------------------------------------- 16
+// Performs left-to-right function composition.
+// The leftmost function may have any arity; the remaining functions must be unary
+// const f = R.pipe(Math.pow, R.negate, R.inc);
+// f(3, 4); // -(3^4) + 1
+
+Ram.pipe = function(...funcA){
+
+    let ref =  this;
+
+    return function(...args){
+
+        let result = args;
+        funcA.forEach((eachFunction)=>{
+            result = [eachFunction.apply(ref, result)];
+        });
+
+        return result[0];
+    }
+}
+
+console.log( 
+    "pipe : ",
+    "\n-R.pipe(Math.pow, R.negate, R.inc)(3, 4); -> ",
+    Ram.pipe(Math.pow, R.negate, R.inc)(3, 4)
+);
+
+// compose --------------------------------------------- 17
+// Performs right-to-left function composition.
+// The rightmost function may have any arity; the remaining functions must be unary.
+// const classyGreeting = (firstName, lastName) => "The name's " + lastName + ", " + firstName + " " + lastName
+// const yellGreeting = R.compose(R.toUpper, classyGreeting);
+// yellGreeting('James', 'Bond'); //=> "THE NAME'S BOND, JAMES BOND"
+
+Ram.compose = function(...funcA){
+    let ref =  this;
+
+    return function(...args){
+
+        let result;
+        funcA.forEach((eachFunc, index)=>{
+            if(index==funcA.length-1){
+                //last function
+                result = eachFunc.call(ref,...args);
+            }else{
+                args = args.map((eachArg)=>{
+                    return eachFunc.call(ref,eachArg);
+                });
+            }
+        });
+        return result;
+    }
+}
+const classyGreeting = (firstName, lastName) => "The name's " + lastName + ", " + firstName + " " + lastName
+console.log( 
+    "pipe : ",
+    "\n-R.compose(R.toUpper, classyGreeting)('James', 'Bond'); -> ",
+    Ram.compose(R.toUpper, classyGreeting)('James', 'Bond')
+);
+
+// bind --------------------------------------------- 18
+// const log = R.bind(console.log, console);
+// R.pipe(R.assoc('a', 2), R.tap(log), R.assoc('a', 3))({a: 1});
+
+Ram.bind = function(func, context){
+    
+    return function(...args){
+        func.call(context,...args);
+    }
+}
+const log = Ram.bind(console.log, console);
+console.log("bind : ");
+console.log(
+    "\n-R.pipe(R.assoc('a', 2), R.tap(log), R.assoc('a', 3))({a: 1}); -> ",
+    R.pipe(R.assoc('a', 2), R.tap(log), R.assoc('a', 3))({a: 1})
+);

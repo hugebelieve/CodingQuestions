@@ -266,4 +266,10 @@ module.exports = [
         egInput: `{"str":"6\\na b c aa d b\\n1 2 3 4 5 6\\n3\\n1 5 caaab\\n0 4 xyz\\n2 4 bcdybc"}`,
         path: "determine_dna_health"
     },
+    {
+        url: "stone_break",
+        description: "Last stone weight after break.",
+        egInput: "[2,4,8,5,9,14]",
+        path: "stone_break"
+    },
 ]

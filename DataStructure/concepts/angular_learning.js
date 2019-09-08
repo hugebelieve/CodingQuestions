@@ -38,6 +38,7 @@
 // *Data Binding and two way
 // *Services
 // *Contains feature of routing and auth guard and http fetch
+// *Directives
 // So many watchers can lag the UI as Digest cycle get bottle necked
 
 // RxJS error handling ---------------------------------------------

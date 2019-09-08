@@ -2,6 +2,8 @@
 // 1. constructor -- only once
 // 2. static getDerivedStateFromProps / componentWillReceiveProps -- return new state
 // 3. shouldComponentUpdate -- happens in re-render phase
+// 4.0. ComponentWillMount
+// 4.0. ComponentWillUpdate
 // 4. render -- cannot have setState
 // 5. getSnapshotBeforeUpdate / componentWillUpdate -- happens in re-render phase 
 //      #before this actual patch is not done so you can check dom for comparison
@@ -110,3 +112,11 @@
 // Pref.printExclusive()
 // Pref.printWasted() //useful to check is some component can have shouldComponentUpdate return false
 // Pref.printOperations()
+
+// SyntheticEvent ---------------------------------------------
+// Events which are passed to the callback function onClick={callBack}
+// handleClick(event)=>{
+//  event is actually a synthetic event it is similar to browser event but created by react
+//  do event.preventDefault();  this will stop the default simple return false won't do it
+//  as this is an event made by react and not an actual DOM
+// }
