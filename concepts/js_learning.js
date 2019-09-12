@@ -305,7 +305,7 @@ function getPI(){
 
 // Object.create(obj); ---------------------------------------------
 // let newObj = Object.create(obj);
-// let newFun = Object.create(oldFunc); // create new Obj with oldFunc inside __proto__
+// let newFun = Object.create(oldFunc); // create newObj with oldFunc inside __proto__
 // newObj becomes {} and obj get delegated to newObj as __proto__
 
 // Object oriented in JS ---------------------------------------------

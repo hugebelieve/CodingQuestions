@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Dynamic ToolTip</title>
+        
+        <script
+          src="https://code.jquery.com/jquery-3.4.1.min.js"
+          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+          crossorigin="anonymous"></script>
+
+        <script src="main.js"></script>
+        <link href="main.css" rel="stylesheet"></link>
+    </head>
+    <body>
+        
+        <div class="onlyColumn spaceBetween fullHeight">
+            
+            <div class="onlyRow spaceBetween">
+                <div id="topLeftElem" class="element boxShadow pointer">Hover Top Left</div>
+                <div id="topMiddleElem" class="element boxShadow pointer">Hover Top Middle</div>
+                <div id="topRightElem" class="element boxShadow pointer">Hover Top Right</div>
+            </div>
+            
+            <div class="onlyRow spaceBetween">
+                <div id="bottomLeftElem" class="element boxShadow pointer">Hover Bottom Left</div>
+                <div id="bottomMiddleElem" class="element boxShadow pointer">Hover Bottom Middle</div>
+                <div id="bottomRightElem" class="element boxShadow pointer">Hover Bottom Right</div>
+            </div>
+        </div>
+        
+        <template id="toolTipTemplate">
+            <div class="toolTip onlyColumn alignCenter">
+                <h3 class="nomargin toolTitle">Title</h3>
+                <p class="toolContent">This is the content</p>
+                <div class="onlyRow flexEnd fullWidth">
+                    <button class="actionButton pointer">Okay</button>
+                </div>
+            </div>
+        </template>
+        
+    </body>
+</html>
