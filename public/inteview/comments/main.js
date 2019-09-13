@@ -134,7 +134,7 @@ let commentSectionClick = (event)=>{
 document.getElementById("comment_section").addEventListener("click", commentSectionClick, true);
 
 function insertAfter(newNode, referenceNode) {
-    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+    referenceNode.parentNode.insertAfter(newNode, referenceNode.nextSibling);
 }
 
 function insertBefore(newNode, referenceNode) {

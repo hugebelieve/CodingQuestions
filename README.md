@@ -6,6 +6,9 @@ Interview questions and solutions.
 * [Web Link](https://hugealgo.herokuapp.com/react) - Web page for checking the output of implementation
 * [CODE REF](https://github.com/hugebelieve/CodingQuestions/blob/master/public/vDom/main.js) - Reference to virtual DOM code  and implementation
 
+# Notes taking App
+* [Follow Link](https://hugealgo.herokuapp.com/vanhack/note)
+
 # Example for testing
 * [Heroku App](https://hugealgo.herokuapp.com) - Web page for testing all algo
 

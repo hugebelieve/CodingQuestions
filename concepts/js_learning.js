@@ -268,6 +268,7 @@ function desT({ x, y, ...z }){}
 // Window.onload and document onload ---------------------------------------------
 // Document load happens first when ll elements re placed in DOM.
 // Window load happens when all resources of webpage is loaded like images and all, so it is slower
+// window.onunload, we can do something there that doesn’t involve a delay, like closing related popup windows or local storage.
 
 // With in JS ---------------------------------------------
 function getPI(){

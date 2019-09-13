@@ -43,7 +43,7 @@ function hoverIn(element, title, content, approveCallback, toolTip){
             // create new tooltip only if element is hovered
             // save tooltip in closure for next hover in
             toolTip = getNewToolTip(title, content, approveCallback);
-            element[0].append(toolTip);
+            element[0].prepend(toolTip);
         }
         if(toolTipBox==null){
             toolTipBox = getBoundedBox($(toolTip)); //read size before update to avoid unnecessary repaint

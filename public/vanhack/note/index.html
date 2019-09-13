@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Notes Keeper</title>
+
+        <link href="main.css" rel="stylesheet"></link>
+        <script src="main.js"></script>
+    </head>
+
+    <body>
+        <div class="onlyRow">
+            <div class="addButton boxShadow pointer">+ Add Note</div>
+            <input id="searchInput" placeholder="Search..." type="text" class="searchInput boxShadow">
+        </div>
+        <div class="onlyRow filterParent">
+            <span class="filterLabel">Filters</span>
+            <div id="filterColorDiv" class="onlyRow flexWrap" action-origin="filter" data-colorSelected="-1">
+                
+            </div>
+        </div>
+
+        <div class="onlyRow notesParent flexWrap">
+            
+        </div>
+
+
+        <template id="colorDivTemplate">
+            <div class="selectorColor" data-noteColor="color" style="--main-color:#3cc213"></div>
+        </template>
+
+        <template id="viewNoteTemplate">
+            <div class="eachNoteDiv boxShadow onlyColumn viewerDiv" data-noteColor="card" style="--main-color:black;">
+                <h2 class="titleText nomargin textSingleLine">Title</h2>
+                <p class="noteContent">
+                    Lorem Ipsum.
+                </p>
+                <p class="removeIcon nomargin pointer">&#9940;</p>
+                <p class="editIcon nomargin pointer">EDIT</p>
+            </div>
+        </template>
+
+        <template id="editNodeTemplate">
+            <div class="eachNoteDiv boxShadow onlyColumn editDiv">
+                <h3 class="titleText nomargin textSingleLine">ADD NOTE</h3>
+                <textarea class="noteInput boxShadow" type="text" placeholder="Enter note"></textarea>
+                <div class="onlyColumn">
+                    <span>Color Selection</span>
+                    <div class="onlyRow flexWrap" data-colorSelected="-1">
+                        
+                    </div>
+                </div>
+                <div class="onlyRow flexEnd">
+                    <div class="saveButton boxShadow pointer">SAVE</div>
+                </div>
+                <p class="removeIcon nomargin pointer">&#9940;</p>
+            </div>
+        </template>
+    </body>
+</html>
