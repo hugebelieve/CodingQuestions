@@ -11,6 +11,7 @@ function varS(){
     
     console.log(i); //gives error i not defined
 }
+// const is also a block scope variable
 
 // Primitive values and Reference values
 // Primitive - number, string, bool, null, undefined - her directly value placed in stack and directly value referenced
@@ -135,7 +136,8 @@ var newSuggestionAPIFunction = debounceFunc(suggestionAPI, 300);
 // Throttling ---------------------------------------------
 // Fixing time between two action, may not be consecutive
 // Optimization technique // this consider a delay between two calls and a definite call after time
-// onkeyup search suggestion
+// game with machine gun and trigger in one sec only
+// ==> Here new calls are disregarded until old one completes
 var throttleFunc = function(fn, delay){
     let lastTime = (new Date()).valueOf();
     return function(...args){
@@ -153,6 +155,7 @@ var throttleFunc2 = function(fn, delay){
             flag = false;
             setTimeout(()=>{
                 flag = true;
+                fn.call(this,...args);
             },delay);
         }
     }
@@ -172,18 +175,21 @@ localStorage.getItem("key");
 
 // Session Storage ---------------------------------------------
 // for storing any data but expires in every session of a specific tab
+// two tabs of same origin can have different session storage
 sessionStorage.setItem("key","value");
 sessionStorage.getItem("key");
 
 // Hoisting ---------------------------------------------
 // it is feature of js which takes var and function at top of code initially
 // not exactly top of code but add to top of its own function scope
-
+// hoisting mechanism only moves the declaration
+// ==> Function declarations are hoisted over variable declarations but not over variable assignments
+// class doesn't hoist
 
 // Critical Rendering Path ---------------------------------------------
 // steps for browser rendering
 // DOM tree(Tokenizing,Lexing) -> CSSOM tree -> Combine them -> Compute Geometry -> Painting/Rasterizing
-// Critical path before first paint 
+// Critical path before first paint
 // Use media="paint" for CSS non blocking
 // Use async(or better deffer) in script for non blocking
 // HTML will be that way only one critical path

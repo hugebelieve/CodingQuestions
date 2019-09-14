@@ -103,3 +103,13 @@
 - Router.JS, webpack.config.js and packageg.json to be decentralize as well
 
 ## Think with your engineers on your team about how they will use your APIs and how they will use your abstractions while build a framework or mini framework
+
+
+## AMP make fast ---------------------------------------------
+- ==> Never stop content use async
+- ==> static layouting (image space before loading) (uncouple document layout from resource layout)
+- ==> inline size-bound css (max size 50kb limit)
+- ==> Web Font triggering and downloading (until font download zero http request)
+- ==> Minimize style and layout recalculations (static layouting is an example)
+- ==> GPU accelerated animation (stay with transform and opacity)
+- ==> Prioritize resource loading
