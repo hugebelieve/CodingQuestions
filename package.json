@@ -8,6 +8,7 @@
     "postinstall": "parcel build public/vDom/index.html"
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "comp": "^1.10.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",

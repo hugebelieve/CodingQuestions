@@ -37,8 +37,9 @@ print.apply(nom, ["Mumbai"]); // "Bishal Mumbai"
 
 //Bind ---------------------------------------------
 //same as call but gives a cloned function in return and then you invoke it later with your argument
-let newPrint = print.bind(nom); //print is function 1
-newPrint("Mumbai") // "Bishal Mumbai" //new print is function 2
+let newPrint = print.bind(nom, "Mumbai"); //print is function 1
+newPrint() // "Bishal Mumbai" //new print is function 2
+// Mumbai goes to BoundArgs in "newPrint" variable
 
 // Polyfill for bind  ---------------------------------------------
 //create your own bind to a function used when bind is not available in old browser
@@ -59,22 +60,25 @@ Function.prototype.myBind = function(...args){ //function 1
 // <script defer src="ex.js"></script> ==> html parsing doesn't stop
 // download async and execution only after all html is parsed and also run js code in give sequence
 
-// Prototype ---------------------------------------------
-// It is delegation of object thats it
-[""].__proto__.__proto__  // - gives an object of many functions and properties
-// VS prototype syntax
+// Prototype & "new" ---------------------------------------------
+// It is part of function useful for "new" Object creation
 function Dog(){ this.getBreed = function(){return this.breed;} }
 Dog.prototype.breed = "Bull";
-// Only function can have this prototype and not other variables not even object
-let myDog = new Dog(); // so .prototype is specially for creating class constructor and can get its value with "this"
-myDog.getBreed(); //=>Bull
-// Why?
-// When let z = new Dog(); is called
-// getBeard will get copied and new variable will be created
-// but breed will get inherited and won't get copied
-// * So user prototype always to reduce amount of new values created and resources lost
+let myDog = new Dog();
+myDog.getBreed(); //=>Bull ==> powerful breed value coming from __proto__ since not found in myDog object 
+// "new" does 5 things
+// ==> Creates a new empty object
+// ==> Runs the function as a constructor
+// ==> Attach all "this" variables inside newly created object
+// ==> Delegated all "prototype" variables to the __proto__ of newly created object
+// ==> Returns the newly created object
+// This is same thing happening in class Main{} syntax
 
-// __proto__ - anything in proto can be changed globally ---------------------------------------------
+// Prototypal inheritance ---------------------------------------------
+// It is delegation of object, variables and functions thats it
+[""].__proto__.__proto__  // - gives an object of many functions and properties
+// * So __proto__ use reduce amount of new values created and save resources lost
+// __proto__ - anything in proto can be changed globally
 var foo = function(){
     let closureForThis = "closure_value"; //closure are fixed once called new or return
     this.getClosure = function(){ return closureForThis; }
@@ -84,23 +88,6 @@ let functionC = new foo();
 // getClosure is part of functionC
 // closureForThis is closure for getClosure function
 // goingToProto is in __proto__ of functionC
-
-class Bar{
-    constructor(){ this.becomePart = "part_of_new_variable"; } //becomePart doesn't go to proto or anything
-}
-Bar.prototype.goesToProto = "value_seen_in__proto__";
-let classC = new Bar();
-
-
-// __proto__ vs Prototype ---------------------------------------------
-// Prototype is part of function only
-// so that when you use "new" keyword in front of it the Prototype will go to __proto__ of new variable
-var prototype = function(){this.name = "self";}
-prototype.prototype.newValue = 89;
-// prototytpe -> { name: "self", prototype:{newValue: 89}, __proto__: f() }
-let newValue = new prototype();
-// newValue -> type="prototytpe"(function name we defined)
-// -> { name: "self", __proto__: { newValue: 89, constructor: f(), __proto__: Object } }
 
 // Event Propagation - bubbling and capturing/trickling ---------------------------------------------
 document.querySelector("#child").addEventListener('click',(e)=>{e.stopPropagation()}, false); //capturing false
@@ -115,7 +102,7 @@ var newPreserveFunction = new Closure(4); // "4" becomes closure value
 // here newPreserveFunction preserves "4" which is closure in function scope
 
 // Curring ---------------------------------------------
-// It is used to make clones of function with saved scope/closure inside it
+// It is used to create function with partial argument saved in it inside with scope/closure
 // We can use bind or closure
 var funcToCurry = function( x, y) { return x*y; }
 funcToCurry.length //=>2
