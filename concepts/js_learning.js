@@ -114,7 +114,7 @@ multiplyByTwo(3) = 6; //can be done with closure as well
 
 // CORS ---------------------------------------------
 // Browser security for cross domain calls from browser itself
-// CORS security makes preflight header calls to server of called domain to get allow header
+// CORS security makes preflight header calls (OPTIONS call) to server of called domain to get allow header
 // and then only makes the actual call for the code of website
 
 // Debouncing ---------------------------------------------
@@ -128,7 +128,7 @@ var debounceFunc = function(fn, delay){
         clearTimeout(timer);
         timer = setTimeout(()=>{
             fn.call(this,...args);
-        },300);
+        },delay);
     }
 }
 var newSuggestionAPIFunction = debounceFunc(suggestionAPI, 300);
@@ -180,7 +180,7 @@ sessionStorage.setItem("key","value");
 sessionStorage.getItem("key");
 
 // Hoisting ---------------------------------------------
-// it is feature of js which takes var and function at top of code initially
+// it is feature of js which takes var and function at top of code(initialize not declare) initially
 // not exactly top of code but add to top of its own function scope
 // hoisting mechanism only moves the declaration
 // ==> Function declarations are hoisted over variable declarations but not over variable assignments
@@ -230,7 +230,8 @@ import { simpleSort } from "../utils";
 // Render Optimise ---------------------------------------------
 // Avoid using Layout(Re Geometry) and Paint
 // Let only Composite work for update
-//  Use transform which is handled by the Composite only and we can achieve 10ms per frame mark
+// Use transform(promote elem on Z-axis) which is handled by the Composite(layer) only and we can achieve 10ms per frame mark
+// JS -> Style -> Layout(Geometry calculation) -> Paint -> Composite(GPU activity)
 
 // Unsplash.it/100/100
 
@@ -327,7 +328,7 @@ console.log(obj.fixedVal); //==> 42
 
 // LRU Cache ---------------------------------------------
 // we want a DS with search complexity O(1) and add/remove complexity also O(1)
-// This can be achieved by combining multiple D
+// This can be achieved by combining multiple DSa
 // Here we can achieve with HashMap and Doubly-link-list
 
 // Big O ---------------------------------------------
