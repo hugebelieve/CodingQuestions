@@ -80,6 +80,9 @@
 // Faster rendering with Virtual DOM
 // Server side rendering hence SEO friendly (but for optimization of paint not so much)
 // React Native
+// SSR
+// Use renderToString and return that
+// Create App main component with hydration to tell client it is SSR
 
 // Routing ang guard ---------------------------------------------
 // react-router-dom <Route></Route> parent wrap which passes "history" with props for route change
