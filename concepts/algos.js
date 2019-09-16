@@ -1,3 +1,6 @@
+// DS is way to organized in a way so that we can access them faster as per need
+// Primitive(int, bool) and abstract DS(trie, graph. linked-list)
+
 // Search in an unsorted array ---------------------------------------------
 // 1. Linear search O(n) complexity
 
@@ -85,9 +88,13 @@
 // While union of disjoint set Result will have that as path
 // Ignore if vertex of edge is in same set
 
-// Sliding Window
+// Sliding Window ---------------------------------------------
 // https://www.youtube.com/watch?v=kh-RHRd4KZ4
 // 2 ways
 // window length is fixed so we get the formula last_window + array[i] - array[i-k]
 // window length is to be find running sum to be used then
 // (check if running sum is exceeding finalSum increase i(1st pointer) or is less then sum increase j(2nd pointer))
+
+
+// Bottom and top view of BT ---------------------------------------------
+// Keep horizontal distance in each node that will help

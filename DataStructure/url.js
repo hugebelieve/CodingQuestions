@@ -272,4 +272,10 @@ module.exports = [
         egInput: "[2,4,8,5,9,14]",
         path: "last_remaining_number"
     },
+    {
+        url: "cut_the_tree",
+        description: "Cut a tree on edge to get minimum difference between two new tree.",
+        egInput: `{"nodes":[ 100, 200, 100, 500, 100, 600 ], "edges": [ [ 1, 2 ], [ 2, 3 ], [ 2, 5 ], [ 4, 5 ], [ 5, 6 ] ]}`,
+        path: "cut_the_tree"
+    },
 ]

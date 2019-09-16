@@ -46,7 +46,7 @@
 
 # Rendering Performance ---------------------------------------------
 > JS execution <==
-- Avoid long-running JS code
+- Avoid long-running JS code or use requestIdleCallback()
 - requestAnimationFrame(cancelAnimationFrame) rather than setTimeout and setInterval
 - requestAnimationFrame stop for inactive tab, and optimized by browser
 - function step(time){ id = requestAnimationFrame(step); }
@@ -80,7 +80,7 @@
 # Event Listener options ---------------------------------------------
 - { capture: true, passive: true, once: true }
 - if passive e.preventDefault() cannot be called
-- if not passive then browser will run thee code block then it will run the event
+- if not passive then browser will run the code block then it will run the event
 - this causes slow browser scroll and we should use passive in "touchmove" events listeners (or better use intersectionObserver)
 - use once if you know click should happened once and you will re-attach listener later if required
 
@@ -93,14 +93,14 @@
 - So we use Lazy-Load at component level
 > But lazy-loading can come out bad with latency(we reduce) point of view
 > Again developer had to decide what to lazy-load - which is not good
-- Split logic and redering 
+- Split logic and rendering 
 > Like UI to be server-side rendered but logic to be loaded if component is rendered
-> Only trade of is Hydration while server-side reendered
+> Only trade of is Hydration while server-side rendered
 > i.e. component loaded on both server side and client side (CPU wastage)
 > But Google Does it
 - CSS-in-JS to avoid "Central Configuration" at all cost
-> Beacuse removal of code becomes a challenge otherwise
-- Router.JS, webpack.config.js and packageg.json to be decentralize as well
+> Because removal of code becomes a challenge otherwise
+- Router.JS, webpack.config.js and package.json to be decentralize as well
 
 ## Think with your engineers on your team about how they will use your APIs and how they will use your abstractions while build a framework or mini framework
 

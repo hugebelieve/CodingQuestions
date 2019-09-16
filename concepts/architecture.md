@@ -23,6 +23,6 @@ https://blog.twitter.com/engineering/
 - LazyLoader
 (Don't want to take all code directly to front end)
 (LazyLoad as per the need and device spec)
-(Twitter has side bar in desktop but for mobile with lazy loading hat code can be skipped)
+(Twitter has side bar in desktop but for mobile with lazy loading hence code can be skipped)
 
 

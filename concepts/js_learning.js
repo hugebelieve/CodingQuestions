@@ -190,7 +190,7 @@ sessionStorage.getItem("key");
 // steps for browser rendering
 // DOM tree(Tokenizing,Lexing) -> CSSOM tree -> Combine them -> Compute Geometry -> Painting/Rasterizing
 // Critical path before first paint
-// Use media="paint" for CSS non blocking
+// Use media="print" for CSS non blocking (apply after print)
 // Use async(or better deffer) in script for non blocking
 // HTML will be that way only one critical path
 // Giving critical inline css saves second network round trip
