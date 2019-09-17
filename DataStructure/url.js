@@ -278,4 +278,16 @@ module.exports = [
         egInput: `{"nodes":[ 100, 200, 100, 500, 100, 600 ], "edges": [ [ 1, 2 ], [ 2, 3 ], [ 2, 5 ], [ 4, 5 ], [ 5, 6 ] ]}`,
         path: "cut_the_tree"
     },
+    {
+        url: "minimum_jump",
+        description: "Minimum jump to reach end of array.",
+        egInput: `[2,3,1,1,4]`,
+        path: "minimum_jump"
+    },
+    {
+        url: "queen_attack",
+        description: "Queen attack box count.",
+        egInput: `{"n": 5, "r_q": 4, "c_q": 3, "obstacles": [[5,5],[4,2],[2,3]] }`,
+        path: "queen_attack"
+    },
 ]

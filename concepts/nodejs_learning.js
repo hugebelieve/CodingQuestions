@@ -25,7 +25,7 @@ let data = require('fs').readFileSync("path");
 // Event can be someone trying to access a port on server
 
 // Scale NodeJS ---------------------------------------------
-// 1. Cloning using Cluster module
+// 1. Cloning using Cluster module (os.cpus().length) (cluster.fork()) (IPC)
 // 2. Decomposing the application in smaller micro-services (Elastic Load Balancer)
 
 // Stream ---------------------------------------------

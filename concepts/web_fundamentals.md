@@ -24,7 +24,7 @@
 - Combine DOM & CSSOM -> Render tree(only visible node) -> Layout Computes -> Paint
 - until CSSOM is complete paint won't happen use media="print" to keep it later (only specific)
 - JS initial execution use async/defer
-- avoid two roundtrips use same basic css in index file
+- avoid two round trips use same basic css in index file
 
 # HTTP/2 ---------------------------------------------
 > Binary Framing <==

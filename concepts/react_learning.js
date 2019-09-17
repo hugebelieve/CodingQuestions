@@ -30,6 +30,7 @@
 // One main.js file can be huge and can take time for huge app
 // So better split it, considering user may only view home page
 // React has Lazy-Loading with routes
+// Use {Suspense, lazy} for loading component lazy and optimize critical rendering path
 
 // CSS-in-JS ---------------------------------------------
 // Actually React does inline css of the styles we pass
@@ -91,7 +92,7 @@
 // Function comp and Class comp ---------------------------------------------
 // Class you extend React.Component
 // Function comp is stateless just create an arrow func and pass in props as argument
-// use can use react hooks to create functional comp with state
+// We can use react hooks to create functional comp with state
 // {useState} to get state in functional comp
 // {useEffect} which gives first arg as cb and send is variable to watch like Angular
 // so inside useEffect cb to update useState value
@@ -123,3 +124,5 @@
 //  do event.preventDefault();  this will stop the default simple return false won't do it
 //  as this is an event made by react and not an actual DOM
 // }
+// ==> <button onClick={this.handleClick}> (with arrow function)
+// ==> <button onClick={(e) => this.handleClick(e)}> (without arrow function)

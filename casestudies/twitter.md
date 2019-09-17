@@ -15,7 +15,7 @@
 - Zookeeper for multiple Redis handling
 
 # Trends
-- Stream processing framework like apache strom
+- Stream processing framework like apache storm
 - Tweet pass to parser
 - Use que like kafka que in between
 - 1. Goes to geo location mapping
