@@ -39,7 +39,9 @@ app.use("/submitAlgo", (request,response)=>{
   let result = filePath.runAlgo(JSON.parse(userData.argsJson==""?"{}":userData.argsJson));
   if(typeof(result)=="number"){
     response.send(""+result);
-  }else{
+  } if(typeof(result)=="string"){
+    response.send(result.replace(/\n/g, "<br>"));
+  } else{
     response.send(result);
   }
 });

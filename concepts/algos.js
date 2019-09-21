@@ -9,8 +9,9 @@
 // 2. Jump Search O(sqrt n) - take a jump value 4 and jump until value is greater than 55 then go back linear for previous 4
 
 // Graph ---------------------------------------------
-// 1. Breadth First Search (BFS)
-// 1. Depth First Search (DFS)
+// 1. Breadth First Search (BFS) --- Que
+// 1. Depth First Search (DFS)   --- Stack
+// visited map, and while loop with pop() and check for neighbors and push to array
 
 // Count Range Sum ---------------------------------------------
 // running Cache

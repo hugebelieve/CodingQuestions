@@ -185,6 +185,7 @@ sessionStorage.getItem("key");
 // hoisting mechanism only moves the declaration
 // ==> Function declarations are hoisted over variable declarations but not over variable assignments
 // class doesn't hoist
+// let and const also Hoist UP but of no use as cannot be accessed before initialization error
 
 // Critical Rendering Path ---------------------------------------------
 // steps for browser rendering

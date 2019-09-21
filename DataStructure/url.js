@@ -290,4 +290,35 @@ module.exports = [
         egInput: `{"n": 5, "r_q": 4, "c_q": 3, "obstacles": [[5,5],[4,2],[2,3]] }`,
         path: "queen_attack"
     },
+    {
+        url: "remove_roads_by_neo",
+        description: "Remove nodes by neo.",
+        egInput: `{
+            "roads": [
+                [2,1,8],
+                [1,0,5],
+                [2,4,5],
+                [1,3,4]
+            ],
+            "machines": [2,4,0]
+        }`,
+        path: "remove_roads_by_neo"
+    },
+    {
+        url: "crossword_puzzle",
+        description: "Solve crossword puzzle with given words.",
+        egInput: `{ "crossword": [
+            "+-++++++++",
+            "+-++-+++++",
+            "+-------++",
+            "+-++-+++++",
+            "+-++-+++++",
+            "+-++-+++++",
+            "++++-+++++",
+            "++++-+++++",
+            "++++++++++",
+            "----------"
+        ], "hints": "CALIFORNIA;NIGERIA;CANADA;TELAVIV"}`,
+        path: "crossword_puzzle"
+    },
 ]
