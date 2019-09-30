@@ -1,130 +1,86 @@
 const fs = require('fs');
 
 fs.readFile('input.txt', 'utf8', function(err, contents) {
-    let result = crosswordPuzzle([
-        '+-++++++++',
-        '+-++-+++++',
-        '+-------++',
-        '+-++-+++++',
-        '+-++-+++++',
-        '+-++-+++++',
-        '++++-+++++',
-        '++++-+++++',
-        '++++++++++',
-        '----------'
-    ], 'CALIFORNIA;NIGERIA;CANADA;TELAVIV');
+    let result = getTimes([5,0,0,1],[0,0,1,1]);
     console.log(result);
 });
 
-function crosswordPuzzle(crossword, hints) {
-    hints = hints.split(";");
-    crossword = crossword.map(val=>val.split(""));
-    let maxI = crossword.length;
-    let maxJ = crossword[0]?crossword[0].length:0;
+function getTimes2(time, direction) {
+    // Write your code here
+    let zip = []; // [man, time, direction]
+    time.forEach((t,i)=>zip.push([i,t,direction[i]]));
+    zip = zip.sort((a,b)=>a[1]-b[1]);
 
-    let hintObj = {};
-    hints.forEach(hint => {
-        if(hintObj[hint.length]==undefined){
-            hintObj[hint.length] = [];
+    let passA = new Array(time.length);
+
+    let lastT = 0;
+    let lastPass = -1;
+    let remains = []; // [man, time, direction]
+    
+    while(zip.length>0){
+        while(zip.length>0 && zip[0][1]==lastT){
+            let item = zip.shift();
+            remains.push([item[0], item[1], item[2]]);
         }
-        hintObj[hint.length].push(hint);
+        if(remains.length>0){
+            let findCheck = 1;
+            if(lastPass==0) findCheck = 0;
+
+            let findIndex = remains.findIndex((val)=>val[2]==findCheck);
+            if(findIndex<0) findIndex=0;
+
+            let allowedP = remains.splice(findIndex,1)[0];
+            passA[allowedP[0]] = Math.max(allowedP[1],lastT);
+            lastPass = allowedP[2];
+        }
+        lastT++;
+    }
+
+    //clear remains 
+    remains.forEach((item)=>{
+        passA[item[0]] = Math.max(item[1],lastT);
     });
 
-    let result = checkAndSet(crossword, hintObj, maxI, maxJ);
-    if(!result){
-        result = crossword;
-    }
-    result = result.map(val=>val.join(""));
-    return result?result:crossword;
+    console.log(passA);
+    return passA;
+
 }
 
-function checkAndSet(crossword, hintObj, maxI, maxJ){
+function getTimes(time, direction) {
+    // Write your code here
 
-    for(let i=0; i< crossword.length; i++){
-        let row = crossword[i];
-        for(let j=0; j<=crossword[i].length; j++){
-            if(row[j]=="-"){
-                let {stackTrack, length, trueForH, start, end} = getEmptyLength(crossword, i, j, maxI, maxJ);
+    let passA = new Array(time.length);
 
-                if(hintObj[length])
-                for(let [index,hint] of hintObj[length].entries()){
-                    if(!checkEquality(hint, stackTrack)){
-                        continue;
-                    }
-                    let hintIndex = 0;
-                    for(let k=start; k<=end; k++){
-                        crossword[trueForH?i:k][trueForH?k:j] = hint[hintIndex];
-                        hintIndex++;
-                    }
-                    let removed = hintObj[length].splice(index,1);
-                    let result = checkAndSet(crossword, hintObj, maxI, maxJ);
-                    if(result!=null){
-                        return result;
-                    }
-                    hintObj[length].splice(index, 0, removed[0]); //push back
-                    hintIndex = 0;
-                    for(let k=start; k<=end; k++){
-                        crossword[trueForH?i:k][trueForH?k:j] = stackTrack[hintIndex];
-                        hintIndex++;
-                    }
-                }
-                return null;
-            }
+    let man = 0;
+    let lastT = 0;
+    let lastPass = -1;
+    let remains = []; // [man, time, direction]
+    
+    while(time.length>0){
+        while(time[0]==lastT && time.length>0){
+            remains.push([man, time.shift(), direction.shift()]);
+            man++;
         }
-    }
-    return crossword;
-}
+        if(remains.length>0){
+            let findCheck = 1;
+            if(lastPass==0) findCheck = 0;
 
-function checkEquality(hint, stackTrack){
-    stackTrack = stackTrack.reduce((prev,value,index)=>{
-        if(value=="-"){
-            return prev+hint[index];
-        }else{
-            return prev+value;
+            let findIndex = remains.findIndex((val)=>val[2]==findCheck);
+            if(findIndex<0) findIndex=0;
+
+            let allowedP = remains.splice(findIndex,1)[0];
+            passA[allowedP[0]] = Math.max(allowedP[1],lastT);
+            lastPass = allowedP[2];
         }
-    },"");
-    return stackTrack===hint;
-}
-
-function getEmptyLength(crossword, startI, startJ, maxI, maxJ){
-
-    let filledSpace = ["+","X"];
-
-    // left
-    let stackTrack = [];
-    let start = startJ;
-    while(start>=0 && !filledSpace.includes(crossword[startI][start]) ){
-        stackTrack.splice(0,0,crossword[startI][start]);
-        start--;
+        lastT++;
     }
-    start++;
-    // right
-    let end = startJ+1;
-    while(end<maxJ && !filledSpace.includes(crossword[startI][end]) ){
-        stackTrack.push(crossword[startI][end]);
-        end++;
-    }
-    end--;
 
-    let stackTrack2 = [];
-    let start2 = startI;
-    // top
-    while(start2>=0 && !filledSpace.includes(crossword[start2][startJ]) ){
-        stackTrack2.splice(0,0,crossword[start2][startJ]);
-        start2--;
-    }
-    start2++;
-    // bottom
-    let end2 = startI+1;
-    while(end2<maxI && !filledSpace.includes(crossword[end2][startJ]) ){
-        stackTrack2.push(crossword[end2][startJ]);
-        end2++;
-    }
-    end2--;
+    //clear remains 
+    remains.forEach((item)=>{
+        passA[item[0]] = Math.max(item[1],lastT);
+    });
 
-    let trueForH = stackTrack.length>stackTrack2.length;
-    let finalST = trueForH?stackTrack:stackTrack2;
-    return {trueForH , stackTrack: finalST,
-            length: finalST.length,
-            start: trueForH?start:start2, end: trueForH?end:end2};
+    console.log(passA);
+    return passA;
+
 }
