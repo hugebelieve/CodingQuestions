@@ -113,3 +113,17 @@
 - ==> Minimize style and layout recalculations (static layouting is an example)
 - ==> GPU accelerated animation (stay with transform and opacity)
 - ==> Prioritize resource loading
+
+# Html in html
+- Embed ==> any content hence used for video/audio
+- iframe ==> frame with url link for show
+- html import ==> <link import=""> with append script
+- Shadow Dom
+
+
+## Web RTC real time connection
+- browser peer connection and sharing
+
+## Web Assembly - Wasm
+- running C/C++ like language by keep it pre downloaded and then running
+- this will make realistic gaming possible inside browsers
