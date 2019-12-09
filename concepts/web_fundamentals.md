@@ -127,3 +127,8 @@
 ## Web Assembly - Wasm
 - running C/C++ like language by keep it pre downloaded and then running
 - this will make realistic gaming possible inside browsers
+
+# Prefetch - for next page
+- Use intersection observer to add prefetch attribute dynamically
+
+# Preload - for current page
