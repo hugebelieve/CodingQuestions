@@ -321,4 +321,10 @@ module.exports = [
         ], "hints": "CALIFORNIA;NIGERIA;CANADA;TELAVIV"}`,
         path: "crossword_puzzle"
     },
+    {
+        url: "permutation_sequence",
+        description: "Find kth sequence of nth size array.",
+        egInput: `{ "arrayNumbers": 3, "kthPermutation": 2}`,
+        path: "permutation_sequence"
+    },
 ]

@@ -44,7 +44,7 @@ var swap = (i,j,array)=>{
 };
 
 module.exports = {
-    runAlgo: shift2
+    runAlgo: shift3
 }
 
 // time complexity

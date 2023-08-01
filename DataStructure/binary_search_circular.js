@@ -1,7 +1,7 @@
 //source - https://www.youtube.com/watch?v=uufaK2uLnSI
 
 
-// Input - [16,18,20,21,4,6,7,9,12,15]; //circular sorted
+// Input - [16,18,20,21,4,6,7,9,12,15]; // circular sorted
 // Find 12
 // Output - 8 //index
 
