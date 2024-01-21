@@ -20,7 +20,7 @@
 > Also media type is send along with has key
 
 # Encryption
-> Symmetric Encryption - Both parties uses same key to encrypt and decrypt
-> Asymmetric Encryption - Public and private key, public key is shared of a given user
+> Symmetric Encryption - Both parties uses same key to encrypt and decrypt - Peer 2 Perr
+> Asymmetric Encryption - Public and private key, public key is shared of a given user - Server 2 User
 
 # VOIP server - Telephony

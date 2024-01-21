@@ -66,7 +66,7 @@
 // So in our case we will no need shouldComponentUpdate()
 
 // Redux store only support synchronous data flow
-// So we have middleware tp rescue
+// So we have middleware to rescue
 
 // MiddleWare Thunk ---------------------------------------------
 // Action creator(function doing async things) - call from UI

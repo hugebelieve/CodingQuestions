@@ -101,6 +101,7 @@ document.querySelector("#child").addEventListener('click',(e)=>{e.stopPropagatio
 var closure = function(preserver) { return function(newVal){ return newVal + preserver; } }
 var newPreserveFunction = new Closure(4); // "4" becomes closure value
 // here newPreserveFunction preserves "4" which is closure in function scope
+// lexical scope i.e. parent scope is preserved in closure
 
 // Curring ---------------------------------------------
 // It is used to create function with partial argument saved in it inside with scope/closure
@@ -192,7 +193,7 @@ sessionStorage.getItem("key");
 // DOM tree(Tokenizing,Lexing) -> CSSOM tree -> Combine them -> Compute Geometry -> Painting/Rasterizing
 // Critical path before first paint
 // Use media="print" for CSS non blocking (apply after print)
-// Use async(or better deffer) in script for non blocking
+// Use async(or better defer) in script for non blocking
 // HTML will be that way only one critical path
 // Giving critical inline css saves second network round trip
 
@@ -225,8 +226,8 @@ import { simpleSort } from "../utils";
 // Reduce complexity of CSS ---------------------------------------------
 // use BEM (Block, Element, Modifier)
 // ".card" for main block
-// ".card--dark" for modifiers
 // ".card__img" for child of card
+// ".card--dark" for modifiers
 
 // Render Optimise ---------------------------------------------
 // Avoid using Layout(Re Geometry) and Paint
@@ -261,7 +262,7 @@ function desT({ x, y, ...z }){}
 "1" + ["few;","more"] //=> "1few;,more"
 
 // Window.onload and document onload ---------------------------------------------
-// Document load happens first when ll elements re placed in DOM.
+// Document load happens first when all elements are placed in DOM.
 // Window load happens when all resources of webpage is loaded like images and all, so it is slower
 // window.onunload, we can do something there that doesn’t involve a delay, like closing related popup windows or local storage.
 

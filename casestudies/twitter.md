@@ -17,13 +17,13 @@
 # Trends
 - Stream processing framework like apache storm
 - Tweet pass to parser
-- Use que like kafka que in between
+- Use que like kafka que / apache storm in between
 - 1. Goes to geo location mapping
 - 2. Count and rate mapping and to rank (use consistent hashing)
 - Save to redis of combined 1 and 2
 
 # Search
-- Inverted full text Index
+- Inverted full text Index - split to words and words index in DB
 - words are mapped in table with tweet id in front of row.
 - Have distributed table
 - Scatter and gather
@@ -33,3 +33,6 @@
 # Like count
 - Cache in between for read which check main server every 10 sec
 - Write to main server with a kafka que
+
+# Analytics
+- Cassandra NoSQL db
